@@ -3,7 +3,6 @@
 
 #include <Arduino.h>
 #include <LiquidCrystal.h>
-#include <sensor.h>
 
 #define RSpin 23
 #define ENpin 22
