@@ -8,7 +8,7 @@
 #define ENpin 22
 #define D4pin 19
 #define D5pin 18
-#define D6pin 5
+#define D6pin 4
 #define D7pin 17
 
 #define button 25
