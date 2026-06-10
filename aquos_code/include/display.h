@@ -4,12 +4,12 @@
 #include <Arduino.h>
 #include <LiquidCrystal.h>
 
-#define RSpin 23
-#define ENpin 22
+#define RSpin 4
+#define ENpin 9
 #define D4pin 19
-#define D5pin 18
-#define D6pin 4
-#define D7pin 17
+#define D5pin 21
+#define D6pin 22
+#define D7pin 23
 
 #define button 25
 
