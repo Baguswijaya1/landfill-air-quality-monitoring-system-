@@ -27,4 +27,7 @@
 .history
 .ionide
 
+# kicad backups
+aquos_pcb-backups/
+
 # End of https://www.toptal.com/developers/gitignore/api/platformio,visualstudiocode
