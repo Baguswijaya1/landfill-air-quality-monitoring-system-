@@ -5,7 +5,7 @@
 #include <LiquidCrystal.h>
 
 #define RSpin 4
-#define ENpin 9
+#define ENpin 5
 #define D4pin 19
 #define D5pin 21
 #define D6pin 22
