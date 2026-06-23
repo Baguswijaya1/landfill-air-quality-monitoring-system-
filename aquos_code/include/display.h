@@ -14,10 +14,10 @@
 #define button 25
 
 LiquidCrystal lcd(RSpin, ENpin, D4pin, D5pin, D6pin, D7pin);
-bool page_state = false;
-int buttonPushCounter = 0;
-int buttonState = 0;
-int lastButtonState= 0;
+// bool page_state = false;
+// int buttonPushCounter = 0;
+// int buttonState = 0;
+// int lastButtonState= 0;
 
 void setup_display() { 
     lcd.begin(16,2);
@@ -25,12 +25,13 @@ void setup_display() {
 }
 
 void serial_display(float& mq4, float& mq135, float& mq136, float& dht){
-    Serial.print("CH4\t: "); Serial.println(mq4);
-    Serial.print("NH3\t: "); Serial.println(mq135);
-    Serial.print("H2S\t: "); Serial.println(mq136);
-    Serial.print("dht\t: "); Serial.println(dht);
+    Serial.print("CH4\t: "); Serial.print(mq4);
+    Serial.print("\tNH3\t: "); Serial.print(mq135);
+    Serial.print("\tH2S\t: "); Serial.print(mq136);
+    Serial.print("\tdht\t: "); Serial.print(dht);
     Serial.println("");
 }
+
 
 void lcd_display_page1(float& mq4, float& mq135){
     char buf[8];
@@ -71,23 +72,23 @@ void lcd_display_page2(float& mq136, float& dht){
     lcd.print("  ");
 }
 
-void display_sensor(float& mq4, float& mq135, float& mq136, float& dht){
-  buttonState = digitalRead(button);
+// void display_sensor(float& mq4, float& mq135, float& mq136, float& dht){
+//   buttonState = digitalRead(button);
 
-  // Increment counter on button press (transition from HIGH to LOW)
-  if (buttonState == LOW && lastButtonState == HIGH) {
-    buttonPushCounter++;
-    delay(50);
-  }
+//   // Increment counter on button press (transition from HIGH to LOW)
+//   if (buttonState == LOW && lastButtonState == HIGH) {
+//     buttonPushCounter++;
+//     delay(50);
+//   }
   
-  // Display based on button press count
-  if (buttonPushCounter % 2 == 0) {
-    lcd_display_page1(mq4, mq135);
-  } else {
-    lcd_display_page2(mq136, dht);
-  }
+//   // Display based on button press count
+//   if (buttonPushCounter % 2 == 0) {
+//     lcd_display_page1(mq4, mq135);
+//   } else {
+//     lcd_display_page2(mq136, dht);
+//   }
   
-  lastButtonState = buttonState;
-}
+//   lastButtonState = buttonState;
+// }
 
 #endif
