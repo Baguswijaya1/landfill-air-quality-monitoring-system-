@@ -38,6 +38,9 @@ void loop() {
   sensor_mq135 = MQ135.measured_value;
   sensor_mq136 = MQ136.measured_value;
   sensor_humidity = humidity.measured_value;
+  sensor_mq4_status = MQ4.status;
+  sensor_mq135_status = MQ135.status;
+  sensor_mq136_status = MQ136.status;
 
   if (currentTime >= display_delay){
     prevTime = currentTime;

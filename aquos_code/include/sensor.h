@@ -50,8 +50,8 @@ float readSensor(const int pin, float& storedVal, int& buffer, float& prev_value
     return filtered;
 }
 
-String decide_status(float& sensor_value, float safe_limit, float hazard_limit){
-    String status;
+String decide_status(float sensor_value, float safe_limit, float hazard_limit){
+    String status;  
     if (sensor_value <= safe_limit) {
         status = "AMAN";
     } else if (sensor_value> safe_limit && sensor_value <= hazard_limit) {
