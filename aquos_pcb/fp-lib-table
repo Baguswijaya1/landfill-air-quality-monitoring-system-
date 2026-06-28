@@ -1,0 +1,6 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "Library") (type "KiCad") (uri "${KIPRJMOD}/Library.pretty") (options "") (descr ""))
+	(lib (name "TXS0108E") (type "KiCad") (uri "${KIPRJMOD}/TXS0108E.pretty") (options "") (descr ""))
+	(lib (name "USB-MICRO-B-MODULE") (type "KiCad") (uri "${KIPRJMOD}/USB-MICRO-B-MODULE.pretty") (options "") (descr ""))
+)
