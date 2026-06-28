@@ -24,11 +24,12 @@ void setup_display() {
     pinMode(button, INPUT);
 }
 
-void serial_display(float& mq4, float& mq135, float& mq136, float& dht){
+void serial_display(float& mq4, float& mq135, float& mq136, float& dht, float& temp){
     Serial.print("CH4\t: "); Serial.print(mq4);
     Serial.print("\tNH3\t: "); Serial.print(mq135);
     Serial.print("\tH2S\t: "); Serial.print(mq136);
     Serial.print("\tdht\t: "); Serial.print(dht);
+    Serial.print("\ttemp\t: "); Serial.print(temp);
     Serial.println("");
 }
 

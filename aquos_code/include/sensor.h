@@ -67,6 +67,11 @@ float readHumidity(const int pin, float& storedVal, int& buffer, float& prev_val
     return movingAvg(storedVal, buffer, hum, prev_value);
 }
 
+float readTemperature(const int pin, float& storedVal, int& buffer, float& prev_value){
+    float temp = humsensor.getTemperature();
+    return movingAvg(storedVal, buffer, temp, prev_value);
+}
+
 
 
 #endif

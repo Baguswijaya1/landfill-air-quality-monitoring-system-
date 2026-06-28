@@ -9,8 +9,9 @@ Sensor MQ4;
 Sensor MQ135;
 Sensor MQ136;
 Sensor humidity;
+Sensor temperature;
 
-const int display_delay = 2000;
+const int display_delay = 5000;
 unsigned long prevTime = 0;
 int counter = 0;
 
@@ -29,6 +30,7 @@ void loop() {
   MQ135.measured_value = readSensor(mq135_pin, MQ135.tempval, MQ135.buffer, MQ135.prev_value);
   MQ136.measured_value = readSensor(mq136_pin, MQ136.tempval, MQ136.buffer, MQ136.prev_value);
   humidity.measured_value = readHumidity(dht22_pin, humidity.tempval, humidity.buffer, humidity.prev_value);
+  temperature.measured_value  = readTemperature(dht22_pin, temperature.tempval, temperature.buffer, temperature.prev_value);
 
   MQ4.status = decide_status(MQ4.measured_value, ch4_safe_limit, ch4_hazard_limit);
   MQ135.status = decide_status(MQ135.measured_value, nh3_safe_limit, nh3_hazard_limit);
@@ -49,7 +51,7 @@ void loop() {
   }
     
   
-  serial_display(MQ4.measured_value, MQ135.measured_value, MQ136.measured_value, humidity.measured_value);
+  serial_display(MQ4.measured_value, MQ135.measured_value, MQ136.measured_value, humidity.measured_value, temperature.measured_value);
   // display_sensor(MQ4.measured_value, MQ135.measured_value, MQ136.measured_value, humidity.measured_value);
 
 
