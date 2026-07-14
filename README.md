@@ -8,12 +8,16 @@ Repository ini adalah dokumentasi dan panduan penggunaan AQUOS (Air Quality Moni
 - **Menggunakan sensor dan komponen biaya murah** (MQ2, MQ135, MQ135, ESP32).
 - **Sistem yang dirancang modular**, memudahkan  penggantian sensor dan komponen apabila terjadi kerusakan.
 
+## :exclamation:Disclaimer
+- sensor gas dalam AQUOS memiliki tingkat kepekaan yang rendah, sehingga tidak dapat mendeteksi perbedaan kadar gas secara signifikan.
+- hasil bacaan sensor hanya mewakili tingkat keberbahayaan gas berdasarkan sinyal dari sensor, bukan kadar gas yang sebenarnya dalam satuan yang akurat (ppm, %)
+
 # :orange_book:Panduan Penggunaan Alat
 ### :battery: Menyalakan AQUOS
-1. Hubungkan port USB type-C pada alat dengan sumber tenaga dengan tegangan 5V dan daya 25W. 
+1. Hubungkan port USB tipe micro-B pada alat dengan sumber tenaga dengan tegangan 5V dan daya 25W. 
 2. Anda bisa mentenagai alat menggunaakan adaptor charger smartphone 25W ke stop kontak rumah/gedung.
-3. Nyalakan Saklar.
-4. Alat akan aktif dan mulai mengambil data gas di lingkungan sekitar. Tunggu 10 menit untuk mendapat data sensor yang lebih akurat, karena sensor membutuhkan penyesuaian terlebih dahulu setelah dinyalakan
+3. Alat akan aktif dan mulai mengambil data gas di lingkungan sekitar. 
+4. Tunggu 30 menit untuk mendapat data sensor yang lebih akurat, karena sensor membutuhkan penyesuaian terlebih dahulu setelah dinyalakan
 
 ### :desktop_computer: Memantau kualitas udara lewat LCD
 1. Hasil pengukuran tingkat kepekatan gas dapat dilihat langsung pada layar LCD.
@@ -24,7 +28,7 @@ AQUOS tidak memerlukan akses internet untuk bisa dipantau lewat perangkat pribad
 2. **Siapkan perangkat pribadi** (smartphone/komputer) dan **hubungkan dengan jaringan yang disediakan oleh AQUOS**.
 ```
 SSID = AQUOS-Batur
-Password = Batur123
+Password = batur123
 ```
 SSID dan password dapat dikustomisasi dengan mengubah kode program di *aquos_code/include/access_point.h* 
 
@@ -42,6 +46,8 @@ SSID dan password dapat dikustomisasi dengan mengubah kode program di *aquos_cod
 | LCD 16x2                 | Komponen untuk menampilkan bacaan sensor         |
 | Modul TXS0108E           | Logic Level Shifter untuk konversi tegangan data keluar dan masuk ESP32|
 </div>
+
+![deskripsi-aquos](images/deskripsi-aquos.jpeg)
 
 ## :construction: Struktur Projek
 

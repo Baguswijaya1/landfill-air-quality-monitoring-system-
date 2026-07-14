@@ -30,4 +30,8 @@
 # kicad backups
 aquos_pcb-backups/
 
+olah_data/
+
+aquos_image.jpeg
+
 # End of https://www.toptal.com/developers/gitignore/api/platformio,visualstudiocode

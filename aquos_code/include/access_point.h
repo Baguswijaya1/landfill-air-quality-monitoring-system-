@@ -5,7 +5,7 @@
 #include <WiFi.h>
 
 #define AP_SSID "AQUOS-Batur"
-#define AP_PASSWORD "Batur123"
+#define AP_PASSWORD "batur123"
 
 void setup_access_point() {
     WiFi.mode(WIFI_AP);

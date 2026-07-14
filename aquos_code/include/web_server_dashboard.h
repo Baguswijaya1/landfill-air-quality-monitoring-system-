@@ -11,6 +11,7 @@ float sensor_mq4 = 0;
 float sensor_mq135 = 0;
 float sensor_mq136 = 0;
 float sensor_humidity = 0;
+float sensor_temperature = 0;
 String sensor_mq4_status = "AMAN";
 String sensor_mq135_status = "AMAN";
 String sensor_mq136_status = "AMAN";
@@ -66,10 +67,14 @@ void handle_root() {
     html += "'>";
     html += sensor_mq136_status;
     html += "</span></p></div>";
-
-    html += "<div class='sensor'><p>Kelembapan: <span class='value'>";
-    html += String(sensor_humidity, 2);
-    html += "%</span></p></div>";
+    
+    // html += "<div class='sensor'><p>Kelembapan: <span class='value'>";
+    // html += String(sensor_humidity, 2);
+    // html += "%</span></p></div>";
+    
+    // html += "<div class='sensor'><p>Suhu: <span class='value'>";
+    // html += String(sensor_temperature, 2);
+    // html += "C</span></p></div>";
 
     html += "</body></html>";
     server.send(200, "text/html", html);

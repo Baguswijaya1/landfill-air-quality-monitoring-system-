@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 #include <LiquidCrystal.h>
+#include <sensor.h>
 
 #define RSpin 4
 #define ENpin 5
@@ -34,43 +35,53 @@ void serial_display(float& mq4, float& mq135, float& mq136, float& dht, float& t
 }
 
 
-void lcd_display_page1(float& mq4, float& mq135){
-    char buf[8];
-    // First row: label + value
+void lcd_display_page1(float& mq4, float& mq136){
+    char buf[16];
+
+    lcd.setCursor(0, 0);
+    lcd.print("                ");
     lcd.setCursor(0, 0);
     lcd.print("CH4:");
-    dtostrf(mq4, 5, 2, buf); // width 5, 2 decimals
+    dtostrf(mq4, 5, 2, buf);
     lcd.setCursor(5, 0);
     lcd.print(buf);
-    // Clear any leftover chars
-    lcd.print("  ");
+    if (mq4 > ch4_threshold){
+        lcd.setCursor(14, 0);
+        lcd.print("!!");
+    }
 
-    // Second row: label + value
+
     lcd.setCursor(0, 1);
-    lcd.print("NH3:");
-    dtostrf(mq135, 5, 2, buf);
-    lcd.setCursor(5, 1);
-    lcd.print(buf);
-    lcd.print("  ");
-}
-
-void lcd_display_page2(float& mq136, float& dht){
-    char buf[8];
-    // First row: H2S
-    lcd.setCursor(0, 0);
+    lcd.print("                ");
+    lcd.setCursor(0, 1);
     lcd.print("H2S:");
     dtostrf(mq136, 5, 2, buf);
+    lcd.setCursor(5, 1);
+    lcd.print(buf);
+    if (mq136 > h2s_threshold){
+        lcd.setCursor(14, 1);
+        lcd.print("!!");
+    }
+}
+
+void lcd_display_page2(float& mq135, float& dht){
+    char buf[16];
+
+    lcd.setCursor(0, 0);
+    lcd.print("                ");
+    lcd.setCursor(0, 0);
+    lcd.print("NH3:");
+    dtostrf(mq135, 5, 2, buf);
     lcd.setCursor(5, 0);
     lcd.print(buf);
-    lcd.print("  ");
 
-    // Second row: HUM
+    lcd.setCursor(0, 1);
+    lcd.print("                ");
     lcd.setCursor(0, 1);
     lcd.print("HUM:");
     dtostrf(dht, 5, 2, buf);
     lcd.setCursor(5, 1);
     lcd.print(buf);
-    lcd.print("  ");
 }
 
 // void display_sensor(float& mq4, float& mq135, float& mq136, float& dht){
