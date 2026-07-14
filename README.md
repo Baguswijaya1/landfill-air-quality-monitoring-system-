@@ -47,7 +47,7 @@ SSID dan password dapat dikustomisasi dengan mengubah kode program di *aquos_cod
 | Modul TXS0108E           | Logic Level Shifter untuk konversi tegangan data keluar dan masuk ESP32|
 </div>
 
-![deskripsi-aquos](images/deskripsi-aquos.jpeg)
+![deskripsi-aquos](images/deskripsi-aquos.png)
 
 ## :construction: Struktur Projek
 
