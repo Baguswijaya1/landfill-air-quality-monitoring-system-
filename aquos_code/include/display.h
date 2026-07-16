@@ -22,7 +22,16 @@ LiquidCrystal lcd(RSpin, ENpin, D4pin, D5pin, D6pin, D7pin);
 
 void setup_display() { 
     lcd.begin(16,2);
-    pinMode(button, INPUT);
+    lcd.setCursor(2,0);
+    lcd.print("AQUOS-BATUR");
+    lcd.setCursor(2,1);
+    lcd.print("KKN-UGM 2026");
+    delay(2000);
+    lcd.setCursor(0, 0);
+    lcd.print("                ");
+    lcd.setCursor(0, 1);
+    lcd.print("                ");
+    delay(500);
 }
 
 void serial_display(float& mq4, float& mq135, float& mq136, float& dht, float& temp){
@@ -33,7 +42,6 @@ void serial_display(float& mq4, float& mq135, float& mq136, float& dht, float& t
     Serial.print("\ttemp\t: "); Serial.print(temp);
     Serial.println("");
 }
-
 
 void lcd_display_page1(float& mq4, float& mq136){
     char buf[16];
@@ -64,43 +72,24 @@ void lcd_display_page1(float& mq4, float& mq136){
     }
 }
 
-void lcd_display_page2(float& mq135, float& dht){
+void lcd_display_page2(float& temp, float& hum){
     char buf[16];
 
     lcd.setCursor(0, 0);
     lcd.print("                ");
     lcd.setCursor(0, 0);
-    lcd.print("NH3:");
-    dtostrf(mq135, 5, 2, buf);
+    lcd.print("Temp:");
+    dtostrf(temp, 5, 2, buf);
     lcd.setCursor(5, 0);
     lcd.print(buf);
 
     lcd.setCursor(0, 1);
     lcd.print("                ");
     lcd.setCursor(0, 1);
-    lcd.print("HUM:");
-    dtostrf(dht, 5, 2, buf);
+    lcd.print("Hum:");
+    dtostrf(hum, 5, 2, buf);
     lcd.setCursor(5, 1);
     lcd.print(buf);
 }
-
-// void display_sensor(float& mq4, float& mq135, float& mq136, float& dht){
-//   buttonState = digitalRead(button);
-
-//   // Increment counter on button press (transition from HIGH to LOW)
-//   if (buttonState == LOW && lastButtonState == HIGH) {
-//     buttonPushCounter++;
-//     delay(50);
-//   }
-  
-//   // Display based on button press count
-//   if (buttonPushCounter % 2 == 0) {
-//     lcd_display_page1(mq4, mq135);
-//   } else {
-//     lcd_display_page2(mq136, dht);
-//   }
-  
-//   lastButtonState = buttonState;
-// }
 
 #endif

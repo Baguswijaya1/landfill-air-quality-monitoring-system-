@@ -14,11 +14,16 @@
 
 float divider = 5.0f;
 DHT_Unified dht(dht22_pin, DHTTYPE);
-
+// // in analog read
 // gas status limit
-float ch4_threshold = 513.0f;
+// float ch4_threshold = 513.0f;
+// float nh3_threshold = 1;
+// float h2s_threshold = 581.0f;
+
+// scaled to /15
+float ch4_threshold = 34.20;
 float nh3_threshold = 1;
-float h2s_threshold = 581.0f;
+float h2s_threshold = 38.733f;
 
 struct Sensor
 {
@@ -64,7 +69,7 @@ void setup_sensors(){
     // analogSetPinAttenuation(mq4_pin, ADC_11db);
     analogSetPinAttenuation(mq135_pin, ADC_11db);
     // analogSetPinAttenuation(mq136_pin, ADC_11db);
-    // dht.begin();
+    dht.begin();
 }
 
 float readHumidity(){
@@ -89,15 +94,9 @@ float readTemperature(){
     }
 }
 
-// float readHumidity(const int pin, float& storedVal, int& buffer, float& prev_value){
-//     float hum = humsensor.getHumidity();
-//     return movingAvg(storedVal, buffer, hum, prev_value);
-// }
-
-// float readTemperature(const int pin, float& storedVal, int& buffer, float& prev_value){
-//     float temp = humsensor.getTemperature();
-//     return movingAvg(storedVal, buffer, temp, prev_value);
-// }
+float change_to_scale(float value){
+    return value/15;
+}
 
 
 
